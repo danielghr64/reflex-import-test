@@ -6,15 +6,25 @@ def left_card() -> rx.Component:
         rx.vstack(
             rx.hstack(
                 rx.icon(tag="bird", size=30, align_self="center"),
-                rx.heading("Daniel Ghr64", size="7"),
+                rx.heading(
+                    "Daniel Ghr64", 
+                    size="7",
+                    color=rx.color_mode_cond(light="gray.800", dark="white")
+                ),
                 align_items="center",
             ),
             
             rx.avatar(src="/identity picture.png", size="9"),
-            rx.text("Python Developer"),
+            rx.text(
+                "Python Developer",
+                color=rx.color_mode_cond(light="gray.600", dark="gray.300")
+            ),
             rx.divider(),
             rx.vstack(
-                rx.text("Specialisation: ", color="gray.500"),
+                rx.text(
+                    "Specialisation: ", 
+                    color=rx.color_mode_cond(light="gray.500", dark="gray.400")
+                ),
                 rx.list.unordered(
                     rx.list_item(
                         rx.text("Machine-learning", font_weight="bold")
@@ -23,6 +33,7 @@ def left_card() -> rx.Component:
                         rx.text("Front-end Developper", font_weight="bold")
                     ),
                     spacing="2",
+                    color=rx.color_mode_cond(light="gray.700", dark="gray.200")
                 ),
                 padding_left="1rem",
                 align_items="start",
@@ -32,7 +43,10 @@ def left_card() -> rx.Component:
                 rx.link(
                     rx.hstack(
                         rx.icon(tag="github"),
-                        rx.text("GitHub"),
+                        rx.text(
+                            "GitHub",
+                            color=rx.color_mode_cond(light="gray.700", dark="white")
+                        ),
                     ),
                     href="#",
                     _hover={"text_decoration": "none"}
@@ -40,7 +54,10 @@ def left_card() -> rx.Component:
                 rx.link(
                     rx.hstack(
                         rx.icon(tag="linkedin"),
-                        rx.text("LinkedIn"),
+                        rx.text(
+                            "LinkedIn",
+                            color=rx.color_mode_cond(light="gray.700", dark="white")
+                        ),
                     ),
                     href="#",
                     _hover={"text_decoration": "none"}
@@ -51,16 +68,17 @@ def left_card() -> rx.Component:
             ),
             align="center",
             spacing="4",
-            height="calc(100vh - 2rem)",  # Ajustement de la hauteur
-            padding_y="1rem"  # Marge interne haut/bas
+            height="calc(100vh - 2rem)",
+            padding_y="1rem"
         ),
         width="20%",
-        height="calc(100vh - 2rem)",  # Réduit la hauteur de 2rem
+        height="calc(100vh - 2rem)",
         margin="1rem",
         box_shadow="lg",
         position="sticky",
-        top="0",  # Ancrage en haut
-        left="0"  # Ancrage à gauche
+        top="0",
+        left="0",
+        bg=rx.color_mode_cond(light="white", dark="gray.800")
     )
 
 def navbar() -> rx.Component:
@@ -69,39 +87,50 @@ def navbar() -> rx.Component:
             rx.link(
                 rx.button(
                     "Home",
+                    color=rx.color_mode_cond(light="gray.800", dark="white"),
                     bg="transparent",
-                    border="1px solid #E2E8F0",  # Bordure grise légère
-                    radius="full",  # Forme ovale
+                    border=rx.color_mode_cond(light="1px solid #E2E8F0", dark="1px solid #2D3748"),
+                    radius="full",
                     _hover={
-                        "bg": "rgba(255, 255, 255, 0.08)",  # Léger effet au survol
-                        "transform": "scale(1.02)",  # Micro animation
+                        "bg": rx.color_mode_cond(light="rgba(0,0,0,0.05)", dark="rgba(255,255,255,0.08)"),
+                        "transform": "scale(1.02)",
                         "transition": "all 0.2s ease"
                     },
                     padding_x="1.5rem",
                     padding_y="0.75rem"
                 ),
+                href="#"
             ),
-            rx.link("About Me", color="gray.500",
-                    _hover={
-                        "bg": "transparent",
-                        "transform": "translateX(2px)",  # Petit déplacement horizontal
-                        "transition": "all 0.2s ease"
-                    },
-                    href="#"),
-            rx.link("Resume", color="gray.500",
-                    _hover={
-                        "bg": "transparent",
-                        "transform": "translateX(2px)",  # Petit déplacement horizontal
-                        "transition": "all 0.2s ease"
-                    },
-                    href="#"),
-            rx.link("Con", color="gray.500",
-                    _hover={
-                        "bg": "transparent",
-                        "transform": "translateX(2px)",  # Petit déplacement horizontal
-                        "transition": "all 0.2s ease"
-                    },
-                    href="#"),
+            rx.link(
+                "About Me", 
+                color=rx.color_mode_cond(light="gray.600", dark="gray.400"),
+                _hover={
+                    "color": rx.color_mode_cond(light="gray.800", dark="white"),
+                    "transform": "translateX(2px)",
+                    "transition": "all 0.2s ease"
+                },
+                href="#"
+            ),
+            rx.link(
+                "Resume",
+                color=rx.color_mode_cond(light="gray.600", dark="gray.400"),
+                _hover={
+                    "color": rx.color_mode_cond(light="gray.800", dark="white"),
+                    "transform": "translateX(2px)",
+                    "transition": "all 0.2s ease"
+                },
+                href="#"
+            ),
+            rx.link(
+                "Contact",
+                color=rx.color_mode_cond(light="gray.600", dark="gray.400"),
+                _hover={
+                    "color": rx.color_mode_cond(light="gray.800", dark="white"),
+                    "transform": "translateX(2px)",
+                    "transition": "all 0.2s ease"
+                },
+                href="#"
+            ),
             spacing="4",
         ),
         rx.spacer(),
@@ -109,17 +138,23 @@ def navbar() -> rx.Component:
             rx.color_mode.button(),
             rx.button(
                 rx.hstack(
-                rx.text("Let's Talk", color="white"),
-                simpleicons("whatsapp", size=16, color="gray.400"),
-                spacing="2",
-                align_items="center"
+                    rx.text(
+                        "Let's Talk", 
+                        color=rx.color_mode_cond(light="gray.800", dark="white")
+                    ),
+                    simpleicons(
+                        "whatsapp", 
+                        size=16, 
+                    ),
+                    spacing="2",
+                    align_items="center"
                 ),
                 bg="transparent",
-                border="1px solid #E2E8F0",  # Bordure grise légère
-                radius="full",  # Forme ovale
+                border=rx.color_mode_cond(light="1px solid #E2E8F0", dark="1px solid #2D3748"),
+                radius="full",
                 _hover={
-                    "bg": "rgba(255, 255, 255, 0.08)",  # Léger effet au survol
-                    "transform": "scale(1.02)",  # Micro animation
+                    "bg": rx.color_mode_cond(light="rgba(0,0,0,0.05)", dark="rgba(255,255,255,0.08)"),
+                    "transform": "scale(1.02)",
                     "transition": "all 0.2s ease"
                 },
                 padding_x="1.5rem",
@@ -128,29 +163,36 @@ def navbar() -> rx.Component:
             spacing="4",
         ),
         width="100%",
-        max_width="100vw",  # Nouvelle propriété importante
-        # padding_x="1em",    # Padding horizontal seulement
+        max_width="100vw",
         padding_y="1em",
         position="sticky",
         top="0",
-        
+        z_index="1000",
+        bg=rx.color_mode_cond(light="rgba(255,255,255,0.8)", dark="rgba(26,32,44,0.8)"),
+        backdrop_filter="blur(10px)"
     )
-
 
 def ghost_button(text: str, icon: str) -> rx.Component:
     return rx.button(
         rx.hstack(
-            rx.text(text, color="white"),
-            rx.icon(tag=icon, size=16, color="gray.400"),
+            rx.text(
+                text, 
+                color=rx.color_mode_cond(light="gray.800", dark="white")
+            ),
+            rx.icon(
+                tag=icon, 
+                size=16, 
+                color=rx.color_mode_cond(light="gray.600", dark="gray.400")
+            ),
             spacing="2",
             align_items="center"
         ),
         bg="transparent",
-        border="1px solid #E2E8F0",  # Bordure grise légère
-        radius="full",  # Forme ovale
+        border=rx.color_mode_cond(light="1px solid #E2E8F0", dark="1px solid #2D3748"),
+        radius="full",
         _hover={
-            "bg": "rgba(255, 255, 255, 0.08)",  # Léger effet au survol
-            "transform": "scale(1.02)",  # Micro animation
+            "bg": rx.color_mode_cond(light="rgba(0,0,0,0.05)", dark="rgba(255,255,255,0.08)"),
+            "transform": "scale(1.02)",
             "transition": "all 0.2s ease"
         },
         padding_x="1.5rem",
@@ -162,65 +204,82 @@ def text_link_button(text: str, icon: str) -> rx.Component:
         rx.hstack(
             rx.text(
                 text, 
-                color="gray.500",
-                _hover={"text_decoration": "underline"}
+                color=rx.color_mode_cond(light="gray.600", dark="gray.400"),
+                _hover={
+                    "color": rx.color_mode_cond(light="gray.800", dark="white"),
+                    "text_decoration": "underline"
+                }
             ),
-            rx.icon(tag=icon, size=16, color="gray.500"),
+            rx.icon(
+                tag=icon, 
+                size=16, 
+                color=rx.color_mode_cond(light="gray.600", dark="gray.400")
+            ),
             spacing="2",
             align_items="center"
         ),
         bg="transparent",
         _hover={
             "bg": "transparent",
-            "transform": "translateX(2px)",  # Petit déplacement horizontal
+            "transform": "translateX(2px)",
             "transition": "all 0.2s ease"
         },
         padding_x="0.5rem",
         padding_y="0.5rem",
-        box_shadow="none"  # Supprime tout effet d'ombre
+        box_shadow="none"
     )
 
 def main_content() -> rx.Component:
     return rx.box(
         rx.vstack(
             navbar(),
-            rx.flex( # Utilisation de flex pour l'espacement
+            rx.flex(
                 rx.vstack(
                     rx.button(
                         rx.hstack(
                             rx.icon(tag="mail", size=20),
-                            rx.text("Let's meet"),
+                            rx.text(
+                                "Let's meet",
+                                color="white"
+                            ),
                             spacing="2",
                             align_items="center",
                         ),
-                        bg="#000000",
+                        bg=rx.color_mode_cond(light="gray.800", dark="blue.600"),
                         color="white",
-                        _hover={"bg": "#2C5282"},
+                        _hover={"bg": rx.color_mode_cond(light="gray.700", dark="blue.500")},
                     ),
-                    rx.heading("Hello I'm Daniel Ghr64", size="9"),
-                    rx.text("Développeur Python passionné par la création web", size="4"),
-
+                    rx.heading(
+                        "Hello I'm Daniel Ghr64", 
+                        size="9",
+                        color=rx.color_mode_cond(light="gray.800", dark="white")
+                    ),
+                    rx.text(
+                        "Développeur Python passionné par la création web", 
+                        size="4",
+                        color=rx.color_mode_cond(light="gray.600", dark="gray.300")
+                    ),
                     rx.hstack(
                         ghost_button("My Works", "grid-2x2"),
                         text_link_button("Download CV", "download"),
                         spacing="4",
                     ),
-
                     spacing="4",
-                    flex="1", # Le contenu prendra l'espace restant
-                    align_items="start", # Aligner au début
-                    justify_content="flex-start", # Aligner au début
+                    flex="1",
+                    align_items="start",
+                    justify_content="flex-start",
                 ),
                 height="80vh",
                 width="100%",
                 align_items="center",
-                justify_content="flex-start", # Aligner le contenu au début verticalement
+                justify_content="flex-start",
             ),
             width="100%",
         ),
         width="100%",
         overflow_x="hidden",
         padding_x="1rem",
+        bg=rx.color_mode_cond(light="gray.50", dark="gray.900")
     )
     
 
@@ -229,6 +288,5 @@ def new_landing_page() -> rx.Component:
         left_card(),
         main_content(),
         width="100%",
-        # position="relative"
+        bg=rx.color_mode_cond(light="gray.50", dark="gray.900")
     )
-
