@@ -80,6 +80,7 @@ def navbar() -> rx.Component:
                     padding_x="1.5rem",
                     padding_y="0.75rem"
                 ),
+                href="/",
             ),
             rx.link("About Me", color="gray.500",
                     _hover={
