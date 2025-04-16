@@ -1,4 +1,5 @@
 import reflex as rx
+from reflex_simpleicons import simpleicons
 
 from portfolio.css import styles
 from .views.landing_page import new_landing_page
@@ -13,7 +14,7 @@ gradient_text_style_light = {
 
 data = [
     ["/github.png", "Github", "#"],
-    ["/whatsapp.png", "Whatsapp", "#"],
+    ["/whatsapp.png", "WhatsApp", "#"],
     ["/linkedin.png", "Linkedin", "#"],
 ]
 
@@ -44,11 +45,11 @@ def badges(title: str) -> rx.Component:
 
 def custom_breadcrumb() -> rx.Component:
     return rx.hstack(
-        rx.link(rx.icon(tag="github"), "Github", href="#", target="_blank"),  # Lien avec icône
+        rx.link(simpleicons("github", size=16, color="gray.400"), "Github", href="https://github.com/danielghr64", target="_blank"),  # Lien avec icône
         rx.text("/"),  # Séparateur avec icône
-        rx.link(rx.icon(tag="youtube"), "Youtube", href="https://www.youtube.com/watch?v=9bZkp7q19f0", target="_blank"),  # Lien avec icône
+        rx.link(simpleicons("whatsapp", size=16, color="gray.400"), "WhatsApp", href="https://cbl.link/knmWwpK", target="_blank"),  # Lien avec icône
         rx.text("/"),  # Séparateur avec icône
-        rx.link(rx.icon(tag="linkedin"), "Linkedin", href="#"),  # Lien avec icône
+        rx.link(rx.icon(tag="linkedin", size=16), "Linkedin", href="#"),  # Lien avec icône
         spacing="2",  # Espacement entre les éléments
         style={"font_size": "1rem", }, # "font_weight": "bold"
     )
